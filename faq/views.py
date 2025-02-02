@@ -10,8 +10,12 @@ from rest_framework.pagination import PageNumberPagination
 
 def get_faqs_from_cache(lang):
     cached_faqs = cache.get(f'faqs_{lang}')
-    if cached_faqs:
+    if isinstance(cached_faqs, list):  
+        return cached_faqs
+    
+    if isinstance(cached_faqs, str): 
         return json.loads(cached_faqs)
+    
     return None
 
 def set_faqs_to_cache(lang, faqs_data):
