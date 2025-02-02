@@ -18,13 +18,17 @@ from django.contrib import admin
 from django.urls import path, include
 from faq.views import *
 from rest_framework.routers import DefaultRouter
+from django.shortcuts import redirect
 
 router = DefaultRouter()
+router.register(r'faqs', faqViewSet, basename='faq')
 
-
-
+def redirect_to_faqs(request):
+    return redirect('/api/v1/faqs')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/v1/', include(router.urls)),
+    path('api/v1/faqs', faq_page),
+    path('', redirect_to_faqs)
 ]

@@ -94,7 +94,9 @@ CKEDITOR_CONFIGS = {
 CACHES = {
     'default': {
         'BACKEND': 'django.core.cache.backends.redis.RedisCache',
-        'LOCATION': 'redis://redis:6379/1',  # Use service name 'redis'
+        'LOCATION': 'redis://127.0.0.1:6379/1', 
+         
+        
     }
 }
 # Password validation

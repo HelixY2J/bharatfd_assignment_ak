@@ -4,11 +4,10 @@ from .models import FAQ
 
 class FAQAdmin(admin.ModelAdmin):
 
-    list_display = ['id', 'question', 'que_hindi', 'que_bengali']
-    search_fields = ['id', 'question', 'que_hindi', 'que_bengali']
-    list_filter = ['que_hindi', 'que_bengali']
-    ordering = ['question']
-
+    list_display = ['id', 'question']
+    search_fields = ['id', 'question']
+    list_filter = ['id']
+    list_per_page = 20
 
 admin.site.site_header = 'FAQs Admin'
 admin.site.site_title = 'FAQs Management Admin HQ'

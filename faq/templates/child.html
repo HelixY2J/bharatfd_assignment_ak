@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="faq-container" style="background: #ffffff; color: #2e7d32; padding: 20px; border-radius: 8px;">
+  <h2 style="color: #1b5e20;">Read this</h2>
+  <label for="lang" class="lang-label" style="color: #2e7d32;">Choose Language:</label>
+  <select id="lang" style="width: 150px; padding: 10px; margin: 10px 0; border: 1px solid #1b5e20; border-radius: 5px; background: #ffffff; color: #2e7d32;">
+    <option value="en">English</option>
+    <option value="hi">Hindi</option>
+    <option value="bn">Bengali</option>
+  </select>
+  <button onclick="fetchFAQs()" class="search_btn" style="padding: 10px; background: #2e7d32; color: #ffffff; border: none; border-radius: 5px; cursor: pointer; transition: background 0.3s;">
+    Search
+  </button>
+  <div id="faq-list"></div>
+</div>
+<button id="load-more-btn" style="display: none; background: #2e7d32; color: #ffffff; padding: 10px; border-radius: 5px; border: none; cursor: pointer;">
+  Load More
+</button>
+<script src="{% static 'faqFetch.js' %}"></script>
+{% endblock %}
